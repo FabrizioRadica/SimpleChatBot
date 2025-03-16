@@ -93,3 +93,11 @@ This project is free and open-source software released under the [GNU General Pu
 - [Ollama](https://ollama.ai/) for the lightweight LLM server
 - [FastAPI](https://fastapi.tiangolo.com/) for the efficient Python backend
 
+
+_                _                _  _   _____                
+   / \   _ __ ___   (_)  __ _   __ _ | || | | ____|__   __ ___ _ __ 
+  / _ \ | '_ ` _ \  | | / _` | / _` || || | |  _| \ \ / // _ \ '__|
+ / ___ \| | | | | | | || (_| || (_| || || | | |___ \ V /|  __/ |   
+/_/   \_\_| |_| |_| |_| \__, | \__,_||_||_| |_____| \_/  \___|_|   
+                        |___/
+
