@@ -2,13 +2,6 @@
 # Simple webapp written in Python, Ollama and FastAPI
 # by Fabrizio Radica 2025
 
-_                _                _  _   _____                
-   / \   _ __ ___   (_)  __ _   __ _ | || | | ____|__   __ ___ _ __ 
-  / _ \ | '_ ` _ \  | | / _` | / _` || || | |  _| \ \ / // _ \ '__|
- / ___ \| | | | | | | || (_| || (_| || || | | |___ \ V /|  __/ |   
-/_/   \_\_| |_| |_| |_| \__, | \__,_||_||_| |_____| \_/  \___|_|   
-                        |___/
-
 
 ![immagine](https://github.com/user-attachments/assets/c68e1ed5-c5da-4ca8-b5ec-210e08ea49b4)
 
