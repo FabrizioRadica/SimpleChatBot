@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chat_name }}</title>
+    <link rel="stylesheet" href="/static/dark_theme.css">
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            {{ chat_name }}
+        </div>
+
+        <div class="chat-messages" id="messageArea">
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Scrivi un messaggio...">
+            <button id="sendButton">Invia</button>
+        </div>
+    </div>
+
+    <script>
+        // Pass template variables to JavaScript
+        const assistantName = "{{ assistant_name }}";
+        const aiModel = "{{ ai_model }}";
+    </script>
+    <script src="/static/chat.js"></script>
+</body>
+
+</html>
