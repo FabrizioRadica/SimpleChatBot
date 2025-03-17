@@ -35,11 +35,16 @@ app = FastAPI()
 
 # Configura la cartella "templates" per i file HTML
 templates = Jinja2Templates(directory="templates")
+
 # Monta la cartella "static" come file statici
 app.mount("/static", StaticFiles(directory="static"), name="static")
  
 class ollama_model(BaseModel):
     model: ClassVar[list[str]] = ["llama3.1", "llama3.2-vision:11b"]
+
+class ollama_images(BaseModel):
+    images: ClassVar[list[str]] = ["images/palermo.jpg", "images/roma.jpg", "images/milano.jpg"]
+    
 
 # Configurazione di default per la chiamata a Ollama
 # Modifica i valori di default se necessario
@@ -58,7 +63,7 @@ class ollama_query(BaseModel):
     #api_use_chathistory: bool = False
     api_use_computervision: bool = True  #computer vision
     session_id: str = "default"
-    vision_image: str = "images/palermo.jpg"
+    #vision_image: str = "images/palermo.jpg"
     
 class Theme(BaseModel):
     name: str = "terminal-theme.css"  
@@ -111,9 +116,8 @@ async def simple_ollama_chat(query: Query = Depends()):
 @app.get('/generate') 
 async def ollama_chat(query: ollama_query = Depends()):
     try:
-        
-        base64_image = encode_image_to_base64(query.vision_image)   
-       # Ottieni lo storico della chat dal file
+         
+        # Ottieni lo storico della chat dal file
         chat_history = get_chat_history(query.session_id)
         system_prompt = query.api_system_prompt
         
@@ -125,10 +129,11 @@ async def ollama_chat(query: ollama_query = Depends()):
             # Aggiorna il messaggio di sistema esistente con il nuovo contesto
             chat_history[0]["content"] = system_prompt
         
-        # Aggiungi il messaggio dell'utente allo storico
-        # Se l'utente ha fornito un'immagine, aggiungila al messaggio
+        # Se l'API Computer Vision è attiva, codifica l'immagine selezionata in base64
         if query.api_use_computervision:
-            user_message = {"role": "user", "content": query.api_prompt, "images": [base64_image]}
+            # Usa solo l'immagine selezionata dal parametro vision_image
+            base64_image = [encode_image_to_base64(query.vision_image)]
+            user_message = {"role": "user", "content": query.api_prompt, "images": base64_image}
         else:
             user_message = {"role": "user", "content": query.api_prompt}
             
