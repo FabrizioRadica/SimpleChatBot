@@ -47,7 +47,7 @@ A lightweight web interface for interacting with [Ollama](https://ollama.ai/) la
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/simple-ollama-chat.git
+   git clone https://github.com/FabrizioRadica/simple-ollama-chat.git
    cd simple-ollama-chat
    ```
 
