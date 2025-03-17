@@ -1,11 +1,3 @@
-```
-    _                _                _  _   _____                
-   / \   _ __ ___   (_)  __ _   __ _ | || | | ____|__   __ ___ _ __ 
-  / _ \ | '_ ` _ \  | | / _` | / _` || || | |  _| \ \ / // _ \ '__|
- / ___ \| | | | | | | || (_| || (_| || || | | |___ \ V /|  __/ |   
-/_/   \_\_| |_| |_| |_| \__, | \__,_||_||_| |_____| \_/  \___|_|   
-                        |___/                                      
-```
 
 A lightweight web interface for interacting with [Ollama](https://ollama.ai/) language models through a clean and responsive chat interface.
 
@@ -110,3 +102,12 @@ Created by [RadicaDesign](https://www.radicadesign.com)
 
 - [Ollama](https://ollama.ai/) for the lightweight LLM server
 - [FastAPI](https://fastapi.tiangolo.com/) for the efficient Python backend
+
+```
+    _                _                _  _   _____                
+   / \   _ __ ___   (_)  __ _   __ _ | || | | ____|__   __ ___ _ __ 
+  / _ \ | '_ ` _ \  | | / _` | / _` || || | |  _| \ \ / // _ \ '__|
+ / ___ \| | | | | | | || (_| || (_| || || | | |___ \ V /|  __/ |   
+/_/   \_\_| |_| |_| |_| \__, | \__,_||_||_| |_____| \_/  \___|_|   
+                        |___/                                      
+```
