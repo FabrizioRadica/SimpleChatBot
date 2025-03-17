@@ -1,3 +1,9 @@
+# SimpleChatBot
+# Simple webapp written in Python, Ollama and FastAPI
+# by Fabrizio Radica 2025
+
+
+![immagine](https://github.com/user-attachments/assets/c68e1ed5-c5da-4ca8-b5ec-210e08ea49b4)
 
 A lightweight web interface for interacting with [Ollama](https://ollama.ai/) language models through a clean and responsive chat interface.
 
