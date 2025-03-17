@@ -3,8 +3,6 @@
 # by Fabrizio Radica 2025
 
 
-![immagine](https://github.com/user-attachments/assets/c68e1ed5-c5da-4ca8-b5ec-210e08ea49b4)
-
 A lightweight web interface for interacting with [Ollama](https://ollama.ai/) language models through a clean and responsive chat interface.
 
 ## Features
@@ -15,7 +13,14 @@ A lightweight web interface for interacting with [Ollama](https://ollama.ai/) la
 - Responsive design that works on both desktop and mobile devices
 - **Chat history persistence** - conversations are now saved between sessions
 - **Session management** - support for multiple conversation threads
+- ** New Theme system **
 - Simple and intuitive user experience
+
+
+![immagine](https://github.com/user-attachments/assets/c68e1ed5-c5da-4ca8-b5ec-210e08ea49b4)
+
+![immagine](https://github.com/user-attachments/assets/36da53f1-144b-4938-b9b2-8f1fe82727c4)
+
 
 ## Project Structure
 
