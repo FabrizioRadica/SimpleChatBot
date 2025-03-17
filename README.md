@@ -114,9 +114,13 @@ Created by [RadicaDesign](https://www.radicadesign.com)
 - [Ollama](https://ollama.ai/) for the lightweight LLM server
 - [FastAPI](https://fastapi.tiangolo.com/) for the efficient Python backend
 
-Please support me! :)
+
+## SUPPORT 
+If my work is coming in handy for you to study AI or for your commercial projects or you simply like me, you can support me :)
 
 <a href="https://www.buymeacoffee.com/fabbroz"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=fabbroz&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
+
+... and yes.. I'm an Amiga Lover ;)
 
 ```
     _                _                _  _   _____                
