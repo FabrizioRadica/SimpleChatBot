@@ -8,6 +8,7 @@ __pycache__/
 
 #application
 chat/
+images/
 
 
 # Distribution / packaging
