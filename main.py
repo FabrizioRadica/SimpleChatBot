@@ -26,7 +26,6 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 
-
 from pathlib import Path
 # Importa le funzioni per la gestione dello storico della chat
 from history import get_chat_history,save_chat_history
@@ -48,7 +47,7 @@ class ollama_model(BaseModel):
 class ollama_query(BaseModel):
     assistant_name: str = "Gigi"
     api_system_prompt: str = "Ti chiami Gigi e sei un assistente molto preparato."
-    api_chatname: str = "Chat di Gigi"
+    api_chatname: str = "Chatta con Gigi, il tuo assistente preferito!"
     api_prompt: str = ""
     api_model: str = ollama_model.model[1]
     api_temperature: float = 0.7
@@ -57,7 +56,7 @@ class ollama_query(BaseModel):
     api_max_tokens: int = 2048
     api_context_window: int = 4096
     #api_use_chathistory: bool = False
-    api_use_computervision: bool = False  #computer vision
+    api_use_computervision: bool = True  #computer vision
     session_id: str = "default"
     vision_image: str = "images/palermo.jpg"
     
@@ -114,7 +113,6 @@ async def ollama_chat(query: ollama_query = Depends()):
     try:
         
         base64_image = encode_image_to_base64(query.vision_image)   
-        
        # Ottieni lo storico della chat dal file
         chat_history = get_chat_history(query.session_id)
         system_prompt = query.api_system_prompt
@@ -133,6 +131,7 @@ async def ollama_chat(query: ollama_query = Depends()):
             user_message = {"role": "user", "content": query.api_prompt, "images": [base64_image]}
         else:
             user_message = {"role": "user", "content": query.api_prompt}
+            
         chat_history.append(user_message)
                 
         # Usa l'intero storico della chat per la richiesta a Ollama

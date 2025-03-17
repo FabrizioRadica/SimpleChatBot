@@ -17,7 +17,6 @@ A lightweight web interface for interacting with [Ollama](https://ollama.ai/) la
 - Simple and intuitive user experience
 - **Preliminary compute vision**
 
-
 ![immagine](https://github.com/user-attachments/assets/c68e1ed5-c5da-4ca8-b5ec-210e08ea49b4)
 
 ![immagine](https://github.com/user-attachments/assets/36da53f1-144b-4938-b9b2-8f1fe82727c4)
@@ -114,6 +113,10 @@ Created by [RadicaDesign](https://www.radicadesign.com)
 
 - [Ollama](https://ollama.ai/) for the lightweight LLM server
 - [FastAPI](https://fastapi.tiangolo.com/) for the efficient Python backend
+
+Please support me! :)
+
+<a href="https://www.buymeacoffee.com/fabbroz"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=fabbroz&button_colour=FF5F5F&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
 ```
     _                _                _  _   _____                
