@@ -1,3 +1,15 @@
+"""
+SimpleChatBot - GIGI
+
+Ollama Web Interface
+Fabrizio Radica - 2025
+Questo script implementa un'interfaccia web per interagire con il modello Ollama.
+L'interfaccia web consente di inviare messaggi all'assistente Ollama e visualizzare le risposte generate dal modello.
+
+Licenza: MIT
+
+"""
+
 from pydantic import BaseModel
 from typing import Optional, List, Dict
 from pathlib import Path
