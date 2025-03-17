@@ -13,8 +13,9 @@ A lightweight web interface for interacting with [Ollama](https://ollama.ai/) la
 - Responsive design that works on both desktop and mobile devices
 - **Chat history persistence** - conversations are now saved between sessions
 - **Session management** - support for multiple conversation threads
-- ** New Theme system **
+- **New Theme system**
 - Simple and intuitive user experience
+- **Preliminary compute vision**
 
 
 ![immagine](https://github.com/user-attachments/assets/c68e1ed5-c5da-4ca8-b5ec-210e08ea49b4)
