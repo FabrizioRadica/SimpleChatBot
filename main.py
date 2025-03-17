@@ -44,21 +44,36 @@ IMG_DIR = Path("images")
 IMG_DIR.mkdir(exist_ok=True)
  
 class ollama_model(BaseModel):
-    model: ClassVar[list[str]] = ["llama3.1", "llama3.2-vision:11b","llava:7b"]
+    model: ClassVar[list[str]] = ["llama3.1", 
+                                  "llama3.2-vision:11b",
+                                  "llava:7b"]
 
 class ollama_images(BaseModel):
-    images: ClassVar[list[str]] = ["images/palermo.jpg", "images/roma.jpg", "images/milano.jpg"]
+    images: ClassVar[list[str]] = ["images/palermo.jpg", 
+                                   "images/roma.jpg", 
+                                   "images/milano.jpg"]
     
 class Theme(BaseModel):
-    name: str = "terminal-theme.css" 
+    name: str = "dark_theme.css" 
+
+assitant_name: str = "Gigi"
 
 # Configurazione di default per la chiamata a Ollama
 # Modifica i valori di default se necessario
 # Per ulteriori informazioni sui parametri di configurazione, consulta la documentazione di Ollama
 class ollama_query(BaseModel):
-    assistant_name: str = "Gigi"
-    api_system_prompt: str = "Ti chiami Gigi e sei un assistente molto preparato."
-    api_chatname: str = "Chatta con Gigi, il tuo assistente preferito!"
+    assistant_name: str = assitant_name
+    api_system_prompt: str = """
+    Ti chiami """ + assitant_name + """ e sei un assistente molto preparato.
+    
+    Comportamento:
+        Dai rispote brevi ma precise.
+        Devi sempre essere gentile.
+        Se l'utente ti chiede qualcosa che non sai, devi rispondere che non sai.
+        Se l'utente ti chiede di mostrarti o generare foto o immagini, devi rispondere che al momento non è supportato ma lo sarà presto.
+        Se supportato, puoi però descrivere foto o immagini che ti vengono mostrate.
+    """
+    api_chatname: str = "Chatta con " + assitant_name +", il tuo assistente preferito!"
     api_prompt: str = ""
     api_model: str = ollama_model.model[1]
     api_temperature: float = 0.7
@@ -72,7 +87,10 @@ class ollama_query(BaseModel):
      
 #root del sito
 @app.get('/', response_class=HTMLResponse)
-async def main(request: Request,  query: ollama_query = Depends(), theme: Theme =Depends()):
+async def main(request: Request,  
+               query: ollama_query = Depends(), 
+               theme: Theme = Depends()):
+    
     return templates.TemplateResponse('index.html', {
         'request': request, 
         'assistant_name': query.assistant_name,
@@ -126,12 +144,18 @@ async def ollama_chat(query: ollama_query = Depends()):
             # Aggiorna il messaggio di sistema esistente con il nuovo contesto
             chat_history[0]["content"] = system_prompt
         
-        # Se l'API Computer Vision è attiva, codifica l'immagine selezionata in base64
+        # Aggiungi il messaggio dell'utente alla chat
+        # Se l'utente richiede l'uso di Computer Vision, aggiungi l'immagine alla richiesta
         if query.api_use_computervision:
-            # Usa solo l'immagine selezionata dal parametro vision_image
+            
+            # Codifica l'immagine in base64
+            # In questo esempio, viene utilizzata la seconda immagine di esempio presa dalla lista di immagini.
             base64_image = [encode_image_to_base64(ollama_images.images[1])]
+            
+            # Aggiungi il messaggio dell'utente e l'immagine allo storico
             user_message = {"role": "user", "content": query.api_prompt, "images": base64_image}
         else:
+            # Aggiungi il messaggio dell'utente allo storico
             user_message = {"role": "user", "content": query.api_prompt}
             
         chat_history.append(user_message)
